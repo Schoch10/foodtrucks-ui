@@ -1,0 +1,43 @@
+<div class="col-4">
+    <input [formControl]="search" type="search" class="search-bar" placeholder="Search Truck" />
+   <div *ngIf="showAutocomplete == true" class="autocomplete-box">
+        <ul>
+            <li *ngFor="let vend of searchResults; let i=index" (click)="selectVendor($event, i)">{{vend.name}}</li>
+        </ul>
+   </div>
+   <div *ngIf="vendorSelected == true" class="truck-details">
+       <h2>{{selectedVendor.name}}</h2>
+       <p>{{selectedVendor.description}}</p>
+       <a href="{{selectedVendor.url}}">Website</a>
+       <p>Twitter: {{selectedVendor.twitter}}</p>
+   </div>
+</div>
+
+<div class="col-8">
+    <ul class="day-filters">
+        <li class="filter" (click)="filterByDay(1)" [class.active-filter] = "activeDay == 1">Monday</li>
+        <li class="filter" (click)="filterByDay(2)" [class.active-filter] = "activeDay == 2">Tuesday</li>
+        <li class="filter" (click)="filterByDay(3)" [class.active-filter] = "activeDay == 3">Wednesday</li>
+        <li class="filter" (click)="filterByDay(4)" [class.active-filter] = "activeDay == 4">Thursday</li>
+        <li class="filter" (click)="filterByDay(5)" [class.active-filter] = "activeDay == 5">Friday</li>
+    </ul>
+    <sebm-google-map
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="14">
+    <div *ngFor="let vendor of vendors">
+        <sebm-google-map-marker
+                *ngIf="vendor.location[0].latitude"
+                [latitude]="vendor.location[arrayDay].latitude"
+                [longitude]="vendor.location[arrayDay].longitude">
+            <sebm-google-map-info-window [disableAutoPan]="true">
+               <p><b>{{vendor.name}}</b></p>
+               <p>{{vendor.description}}</p>
+               <a href="{{vendor.url}}">Website</a>
+               <p>Twitter: {{vendor.twitter}} </p>
+
+            </sebm-google-map-info-window>
+        </sebm-google-map-marker>
+    </div>
+    </sebm-google-map>
+</div>

@@ -1,0 +1,23 @@
+<h2>Android Download</h2>
+<p>Please follow the instructions below to download the T-Party Application for Android.</p>
+
+<ol>
+	<li>
+		<p>Enable your device to install applications outside of the play store... <a class="more-details" (click)="toggleAppVerification()">More Details</a></p>
+		<appVerification *ngIf="showInstructions"></appVerification>
+	</li>
+	<li>
+		<p>Select the Install Link</p>
+		<a href="https://s3.amazonaws.com/t-party-app-files/com.slalom.tparty-bitrise-signed.apk" class="install-link">Install T-Party for Android</a>
+	</li>
+	<li>
+		<p>Select the home button and locate T-Party App icon on your home screen</p>
+	</li>
+	<li>
+		<p>Wait for install to complete and select the application to launch</p>
+	</li>
+</ol>
+
+
+<p>Not on an Android please choose the correct device below<p>
+<device-list></device-list>

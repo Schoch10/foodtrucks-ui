@@ -1,0 +1,28 @@
+main {
+	background-color: #f9f9f9;
+	width: 90%;
+	height: 100%;
+	display: block;
+	margin: auto;
+
+	header {
+		height: 40px;
+		width: 100%;
+		background-color: white;
+
+		.logo {
+			height: 30px;
+			background-image: url('../../public/images/slalom_logo.png');
+			background-size: 115px 30px;
+			background-repeat: no-repeat;
+			margin-left: 20px;
+		}
+	}
+
+	.content-container {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 20px;
+		min-height: 500px;
+	}
+}
